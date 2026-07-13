@@ -1,0 +1,72 @@
+pipeline {
+
+    agent any 
+
+    stages {
+
+        stage('Checkout') {
+
+            steps {
+
+                echo 'Pulling code from Git...'
+
+            }
+
+        }
+
+        stage('Build') {
+
+            steps {
+
+                echo 'Building application...'
+
+                // Example: sh 'npm run build' or sh 'mvn clean package'
+
+            }
+
+        }
+
+        stage('Test') {
+
+            steps {
+
+                echo 'Running unit and integration tests...'
+
+                // Example: sh 'npm test' or sh 'mvn test'
+
+            }
+
+        }
+
+        stage('Deploy') {
+
+            steps {
+
+                echo 'Deploying application to the server...'
+
+                // Example: sh './deploy.sh'
+
+            }
+
+        }
+
+    }
+
+    post {
+
+        success {
+
+            echo 'Pipeline completed successfully!'
+
+        }
+
+        failure {
+
+            echo 'Pipeline failed. Check logs.'
+
+        }
+
+    }
+
+}
+ 
